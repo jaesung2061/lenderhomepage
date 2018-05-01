@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', 'PagesController@home');
+Auth::routes();
 
-Route::resource('teams', 'TeamController');
-Route::resource('players', 'PlayerController');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', 'PagesController@home');
+
+    Route::resource('teams', 'TeamController');
+    Route::resource('players', 'PlayerController');
+});

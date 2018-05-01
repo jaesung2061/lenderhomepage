@@ -11,6 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        \App\User::create([
+            'name' => 'John Doe',
+            'email' => 'john@doe.com',
+            'password' => bcrypt('secret'),
+        ]);
+
         $teams = factory(\App\Team::class, 10)->create();
 
         foreach ($teams as $team) {
