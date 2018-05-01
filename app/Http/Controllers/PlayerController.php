@@ -77,7 +77,15 @@ class PlayerController extends Controller
      */
     public function update(Request $request, Player $player)
     {
-        //
+        $data = $request->validate([
+            'team_id' => 'required|exists:teams,id',
+            'first_name' => 'required',
+            'last_name' => 'required',
+        ]);
+
+        $player->update($data);
+
+        return response($player);
     }
 
     /**
