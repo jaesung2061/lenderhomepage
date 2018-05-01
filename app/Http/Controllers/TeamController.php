@@ -55,8 +55,10 @@ class TeamController extends Controller
      */
     public function show(Team $team)
     {
-        //
-    }
+        $team->load('players');
+
+        return response($team);
+   }
 
     /**
      * Show the form for editing the specified resource.
