@@ -27,6 +27,7 @@ class AddTeamIdToPlayersTable extends Migration
     public function down()
     {
         Schema::table('players', function (Blueprint $table) {
+            $table->dropForeign('players_team_id_foreign');
             $table->dropColumn('team_id');
         });
     }
