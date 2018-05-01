@@ -32,4 +32,3 @@ class AddTeamIdToPlayersTable extends Migration
         });
     }
 }
-    

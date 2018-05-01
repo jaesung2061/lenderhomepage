@@ -68,6 +68,8 @@
 
                     <h1 class="mb-3">Teams and players</h1>
 
+                    <p v-if="teams.length === 0">No teams yet.</p>
+
                     <div v-for="team in teams" class="mb-3">
                         <h2 v-text="team.name"></h2>
 
