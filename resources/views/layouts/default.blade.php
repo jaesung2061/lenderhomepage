@@ -6,11 +6,15 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>LenderHomePage</title>
 
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     </head>
     <body>
-        @yield('content')
+        <div id="app">
+            @yield('content')
+        </div>
 
         <script src="{{ asset('js/app.js') }}"></script>
     </body>

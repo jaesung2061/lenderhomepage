@@ -14,7 +14,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+        return response(Team::with('players')->get());
     }
 
     /**
@@ -35,7 +35,16 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required',
+        ]);
+
+        $team = Team::create($data);
+
+        // just to load the empty array so Vue doesn't throw an error
+        $team->load('players');
+
+        return response($team);
     }
 
     /**

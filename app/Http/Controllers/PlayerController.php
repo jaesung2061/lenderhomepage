@@ -35,7 +35,15 @@ class PlayerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'team_id' => 'required|exists:teams,id',
+            'first_name' => 'required',
+            'last_name' => 'required',
+        ]);
+
+        $player = Player::create($data);
+
+        return response($player);
     }
 
     /**
