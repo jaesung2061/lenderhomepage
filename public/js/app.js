@@ -13934,7 +13934,6 @@ var app = new Vue({
             var _this3 = this;
 
             axios.post('/players', this.newPlayerForm.data).then(function (response) {
-                console.log(response.data);
                 var team = _this3.teams.find(function (team) {
                     return team.id === response.data.team_id;
                 });

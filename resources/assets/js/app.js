@@ -54,7 +54,6 @@ const app = new Vue({
 
         addPlayer() {
             axios.post('/players', this.newPlayerForm.data).then((response) => {
-                console.log(response.data)
                 const team = this.teams.find(team => team.id === response.data.team_id)
 
                 if (team) {
